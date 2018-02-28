@@ -6,15 +6,16 @@ from draftjs_exporter.html import HTML
 from draftjs_exporter_markdown import BLOCK_MAP, ENGINE, ENTITY_DECORATORS, STYLE_MAP
 
 if __name__ == '__main__':
-    config = {
+    # Initialise the exporter.
+    exporter = HTML({
+        # Those configurations are overridable like for draftjs_exporter.
         'block_map': BLOCK_MAP,
         'style_map': STYLE_MAP,
         'entity_decorators': ENTITY_DECORATORS,
         'engine': ENGINE,
-    }
+    })
 
-    exporter = HTML(config)
-
+    # Demo content from https://github.com/springload/draftjs_exporter/blob/master/example.py.
     content_state = {
         "entityMap": {
             "0": {

@@ -5,6 +5,68 @@
 
 ## Usage
 
+This package is a Markdown export configuration for the [Draft.js exporter](https://github.com/springload/draftjs_exporter). Specifically, it provides:
+
+* A Markdown-friendly exporter engine, with fallbacks to HTML tags.
+* Configuration for basic Markdown formatting.
+
+First, install the package:
+
+```sh
+pip install draftjs_exporter_markdown
+```
+
+Then, to convert Draft.js content to Markdown:
+
+And in Python:
+
+```py
+from draftjs_exporter.html import HTML
+from draftjs_exporter_markdown import BLOCK_MAP, ENGINE, ENTITY_DECORATORS, STYLE_MAP
+
+# Initialise the exporter.
+exporter = HTML({
+    # Those configurations are overridable like for draftjs_exporter.
+    'block_map': BLOCK_MAP,
+    'style_map': STYLE_MAP,
+    'entity_decorators': ENTITY_DECORATORS,
+    'engine': ENGINE,
+})
+
+markdown = exporter.render({
+    'entityMap': {},
+    'blocks': [{
+        'key': '6mgfh',
+        'text': 'Hello, world!',
+        'type': 'unstyled',
+        'depth': 0,
+        'inlineStyleRanges': [],
+        'entityRanges': []
+    }]
+})
+
+print(markdown)
+```
+
+You can also run an example by downloading this repository and then using `python example.py`.
+
+### Configuration
+
+Please refer to the [Draft.js exporter configuration documentation](https://github.com/springload/draftjs_exporter#configuration).
+
+### Supported Markdown formatting
+
+The built-in configuration provides support for:
+
+* Inline styles: bold, italic, strikethrough, code
+* Blocks: paragraphs, heading levels, bullet and number lists, code blocks, blockquote
+* Images, links, and horizontal rules
+
+Contrary to the main Draft.js exporter,
+
+* Nested / overlapping styles aren't supported.
+* None of the content is escaped (HTML escaping is unnecessary for Markdown, and there is no Markdown escaping).
+
 ## Development
 
 > Requirements: `virtualenv`, `pyenv`, `twine`
