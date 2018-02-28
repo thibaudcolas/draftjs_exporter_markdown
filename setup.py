@@ -30,6 +30,7 @@ testing_dependencies = [
     # For coverage and PEP8 linting.
     'coverage>=4.1.0',
     'flake8>=3.2.0',
+    'autopep8>=1.3.3',
     'isort==4.2.5',
 ] + dependencies
 

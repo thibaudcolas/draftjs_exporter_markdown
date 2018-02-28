@@ -35,6 +35,7 @@ JSON_STAGED=$(grep .json$ <<< "$STAGED" || true)
 JSON_FULLY_STAGED=$(grep .json$ <<< "$FULLY_STAGED" || true)
 SNAPSHOT_STAGED=$(grep .snap$ <<< "$STAGED" || true)
 PY_STAGED=$(grep .py$ <<< "$STAGED" || true)
+PY_FULLY_STAGED=$(grep .py$ <<< "$FULLY_STAGED" || true)
 
 if [ -n "$JS_FULLY_STAGED" ];
 then
@@ -69,7 +70,21 @@ then
     npm run linter:md -s -- $MD_STAGED
 fi
 
+if [ -n "$PY_FULLY_STAGED" ];
+then
+    autopep8 --in-place $PY_FULLY_STAGED
+    git add $PY_FULLY_STAGED
+    echo "autopep8 formatted: $PY_FULLY_STAGED"
+fi
+
 if [ -n "$PY_STAGED" ];
 then
+    format_diff=$(autopep8 --diff $PY_STAGED)
+    if [[ $format_diff ]]; then
+        echo "autopep8 invalid formatting:"
+        echo $format_diff
+        exit 1
+    fi
+
     make test-ci
 fi
