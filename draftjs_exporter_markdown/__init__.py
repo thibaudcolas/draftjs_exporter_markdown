@@ -26,7 +26,6 @@ BLOCK_MAP = dict(HTML_BLOCK_MAP, **{
         'wrapper': list_wrapper,
     },
     BLOCK_TYPES.BLOCKQUOTE: prefixed_block('> '),
-    BLOCK_TYPES.PRE: 'pre',
     BLOCK_TYPES.CODE: code_block,
 })
 
