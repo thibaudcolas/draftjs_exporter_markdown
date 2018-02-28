@@ -5,13 +5,19 @@ from __future__ import absolute_import, print_function, unicode_literals
 import io
 import re
 
-from draftjs_exporter_markdown import (
-    __author__, __author_email__, __description__, __license__, __title__, __url__, __version__)
-
 try:
     from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup
+
+__title__ = 'draftjs_exporter_markdown'
+__version__ = '0.1.0'
+__description__ = 'Library to convert rich text from Draft.js raw ContentState to Markdown, based on draftjs_exporter'
+__url__ = 'https://github.com/thibaudcolas/draftjs_exporter_markdown'
+__author__ = 'Thibaud Colas'
+__author_email__ = 'thibaudcolas@gmail.com'
+__license__ = 'MIT'
+__copyright__ = 'Copyright 2018-present %s' % __author__
 
 dependencies = [
     'draftjs_exporter>=2.0.0,<3',
@@ -25,7 +31,7 @@ testing_dependencies = [
     'coverage>=4.1.0',
     'flake8>=3.2.0',
     'isort==4.2.5',
-]
+] + dependencies
 
 documentation_dependencies = [
 

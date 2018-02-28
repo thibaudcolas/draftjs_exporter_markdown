@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import absolute_import, unicode_literals
 
 from draftjs_exporter.dom import DOM
@@ -9,7 +11,7 @@ def inline(children):
 
 
 def line(children):
-    """Line formatting – not really inline, not really a block either."""
+    """Line formatting - not really inline, not really a block either."""
     return DOM.create_element('fragment', {}, children + ['\n'])
 
 

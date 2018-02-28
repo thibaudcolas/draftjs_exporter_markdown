@@ -3,7 +3,7 @@ from __future__ import absolute_import, unicode_literals
 
 from draftjs_exporter.html import HTML
 
-from draftjs_exporter_markdown import BLOCK_MAP, ENTITY_DECORATORS, ENGINE, STYLE_MAP
+from draftjs_exporter_markdown import BLOCK_MAP, ENGINE, ENTITY_DECORATORS, STYLE_MAP
 
 if __name__ == '__main__':
     config = {

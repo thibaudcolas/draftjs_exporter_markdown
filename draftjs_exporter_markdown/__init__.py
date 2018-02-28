@@ -9,16 +9,6 @@ from .entities import image, link, horizontal_rule
 from .styles import inline_style
 
 
-__title__ = 'draftjs_exporter_markdown'
-__version__ = '0.1.0'
-__description__ = 'Library to convert rich text from Draft.js raw ContentState to Markdown, based on draftjs_exporter'
-__url__ = 'https://github.com/thibaudcolas/draftjs_exporter_markdown'
-__author__ = 'Thibaud Colas'
-__author_email__ = 'thibaudcolas@gmail.com'
-__license__ = 'MIT'
-__copyright__ = 'Copyright 2018-present %s' % __author__
-
-
 BLOCK_MAP = dict(HTML_BLOCK_MAP, **{
     BLOCK_TYPES.UNSTYLED: prefixed_block(''),
     BLOCK_TYPES.HEADER_ONE: prefixed_block('# '),
