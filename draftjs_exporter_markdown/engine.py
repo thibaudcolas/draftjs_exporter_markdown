@@ -33,12 +33,6 @@ VOID_ELEMENTS = {
 
 
 class Elt(object):
-    """
-    An DOM element that the string engine manipulates.
-    This class doesn't do much, but the exporter relies on
-    comparing elements by reference so it's useful nonetheless.
-    """
-
     def __init__(self, type_, attr, markup=None):
         self.type = type_
         self.attr = attr
@@ -52,20 +46,12 @@ class Elt(object):
 
 class DOMMarkwdown(DOMEngine):
     """
-    String concatenation implementation of the DOM API.
+    Based on https://github.com/springload/draftjs_exporter/blob/master/draftjs_exporter/engines/string.py.
     """
 
     @staticmethod
     def create_tag(type_, attr=None):
         return Elt(type_, attr)
-
-    @staticmethod
-    def parse_html(markup):
-        """
-        Allows inserting arbitrary HTML into the exporter output.
-        Treats the HTML as if it had been escaped and was safe already.
-        """
-        return Elt.from_html(markup)
 
     @staticmethod
     def append_child(elt, child):

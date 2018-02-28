@@ -3,14 +3,14 @@ from __future__ import absolute_import, unicode_literals
 
 from draftjs_exporter.html import HTML
 
-from draftjs_exporter_markdown import BLOCK_MAP, ENTITY_DECORATORS, STYLE_MAP
+from draftjs_exporter_markdown import BLOCK_MAP, ENTITY_DECORATORS, ENGINE, STYLE_MAP
 
 if __name__ == '__main__':
     config = {
         'block_map': BLOCK_MAP,
         'style_map': STYLE_MAP,
         'entity_decorators': ENTITY_DECORATORS,
-        'engine': 'draftjs_exporter_markdown.dom_markdown.DOMMarkwdown',
+        'engine': ENGINE,
     }
 
     exporter = HTML(config)
@@ -275,7 +275,7 @@ if __name__ == '__main__':
             "data": {}
         }, {
             "key": "37n01",
-            "text": "Depth can go back and forth, it works fiiine (1)",
+            "text": "Depth can go back and forth, it works fiiine (1) - 2",
             "type": "unordered-list-item",
             "depth": 2,
             "inlineStyleRanges": [],
@@ -283,7 +283,7 @@ if __name__ == '__main__':
             "data": {}
         }, {
             "key": "37n02",
-            "text": "Depth can go back and forth, it works fiiine (2)",
+            "text": "Depth can go back and forth, it works fiiine (2) - 1",
             "type": "unordered-list-item",
             "depth": 1,
             "inlineStyleRanges": [],
@@ -291,7 +291,7 @@ if __name__ == '__main__':
             "data": {}
         }, {
             "key": "37n03",
-            "text": "Depth can go back and forth, it works fiiine (3)",
+            "text": "Depth can go back and forth, it works fiiine (3) - 2",
             "type": "unordered-list-item",
             "depth": 2,
             "inlineStyleRanges": [],
@@ -299,7 +299,7 @@ if __name__ == '__main__':
             "data": {}
         }, {
             "key": "37n04",
-            "text": "Depth can go back and forth, it works fiiine (4)",
+            "text": "Depth can go back and forth, it works fiiine (4) - 1",
             "type": "unordered-list-item",
             "depth": 1,
             "inlineStyleRanges": [],
@@ -307,7 +307,7 @@ if __name__ == '__main__':
             "data": {}
         }, {
             "key": "37n05",
-            "text": "Depth can go back and forth, it works fiiine (5)",
+            "text": "Depth can go back and forth, it works fiiine (5) - 0",
             "type": "unordered-list-item",
             "depth": 0,
             "inlineStyleRanges": [],
@@ -367,12 +367,14 @@ if __name__ == '__main__':
             "data": {}
         }, {
             "key": "ed7hu",
-            "text": "def blockquote(props):\n    block_data = props['block']['data']\n    return DOM.create_element('blockquote', {\n        'cite': block_data.get('cite')\n    }, props['children'])\n",
+            "text": "def blockquote(props):\n    block_data = props['block']['data']\n    return DOM.create_element('blockquote', {\n        'cite': block_data.get('cite')\n    }, props['children'])",
             "type": "code-block",
             "depth": 0,
             "inlineStyleRanges": [],
             "entityRanges": [],
-            "data": {}
+            "data": {
+                "language": "python"
+            }
         }, {
             "key": "1nols",
             "text": "Voilà!",

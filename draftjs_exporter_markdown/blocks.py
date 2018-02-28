@@ -8,7 +8,7 @@ def prefixed_block(prefix):
 
 
 def code_block(props):
-    return block(['```\n', props['children'], '\n```'])
+    return block(['```', props['block']['data'].get('language', ''), '\n', props['children'], '\n```'])
 
 
 def ul(props):

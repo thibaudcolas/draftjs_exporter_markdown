@@ -52,3 +52,5 @@ ENTITY_DECORATORS = {
     ENTITY_TYPES.LINK: link,
     ENTITY_TYPES.HORIZONTAL_RULE: horizontal_rule,
 }
+
+ENGINE = 'draftjs_exporter_markdown.engine.DOMMarkwdown'
