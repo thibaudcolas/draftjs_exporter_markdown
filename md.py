@@ -1,190 +1,14 @@
 # -*- coding: utf-8 -*-
-
-from __future__ import absolute_import, unicode_literals
-
-import codecs
-import cProfile
-import logging
-import re
-from pstats import Stats
-
-# draftjs_exporter provides default configurations and predefined constants for reuse.
-from draftjs_exporter.constants import BLOCK_TYPES, ENTITY_TYPES
-from draftjs_exporter.defaults import BLOCK_MAP, STYLE_MAP, render_children
-from draftjs_exporter.dom import DOM
 from draftjs_exporter.html import HTML
 
-
-def list_item(props):
-    depth = props['block']['depth']
-
-    return DOM.create_element('li', {
-        'class': 'list-item--depth-{0}'.format(depth)
-    }, props['children'])
-
-
-def ordered_list(props):
-    depth = props['block']['depth']
-
-    return DOM.create_element('ol', {
-        'class': 'list--depth-{0}'.format(depth)
-    }, props['children'])
-
-
-def image(props):
-    alt = props.get('alt', '')
-    return DOM.create_element('fragment', {}, ['![' + alt + '](', props['src'], ')\n\n'])
-
-
-def bold(props):
-    return DOM.create_element('fragment', {}, ['**', props['children'], '**'])
-
-
-def italic(props):
-    return DOM.create_element('fragment', {}, ['_', props['children'], '_'])
-
-
-def strikethrough(props):
-    return DOM.create_element('fragment', {}, ['~', props['children'], '~'])
-
-
-def underline(props):
-    return DOM.create_element('span', {
-        'style': 'text-decoration: underline;'
-    }, props['children'])
-
-
-def link(props):
-    return DOM.create_element('fragment', {}, ['[', props['children'], '](', props['url'], ')'])
-
-
-def linkify(props):
-    """
-    Wrap plain URLs with link tags.
-    """
-    match = props['match']
-    protocol = match.group(1)
-    url = match.group(2)
-    href = protocol + url
-
-    if props['block']['type'] == BLOCK_TYPES.CODE:
-        return href
-
-    return DOM.create_element(link, {'url': href}, href)
-
-
-# See http://pythex.org/?regex=(http%3A%2F%2F%7Chttps%3A%2F%2F%7Cwww%5C.)(%5Ba-zA-Z0-9%5C.%5C-%25%2F%5C%3F%26_%3D%5C%2B%23%3A~!%2C%5C%27%5C*%5C%5E%24%5D%2B)&test_string=search%20http%3A%2F%2Fa.us%20or%20https%3A%2F%2Fyahoo.com%20or%20www.google.com%20for%20%23github%20and%20%23facebook&ignorecase=0&multiline=0&dotall=0&verbose=0
-LINKIFY_RE = re.compile(
-    r'(http://|https://|www\.)([a-zA-Z0-9\.\-%/\?&_=\+#:~!,\'\*\^$]+)')
-
-
-def block_fallback(props):
-    type_ = props['block']['type']
-
-    logging.warn('Missing config for "%s".' % type_)
-    return render_children(props)
-
-
-def entity_fallback(props):
-    type_ = props['entity']['type']
-    logging.warn('Missing config for "%s".' % type_)
-    return render_children(props)
-
-
-def header_two(props):
-    return DOM.create_element('fragment', {}, ['## ', props['children'], '\n\n'])
-
-
-def header_three(props):
-    return DOM.create_element('fragment', {}, ['### ', props['children'], '\n\n'])
-
-
-def blockquote(props):
-    return DOM.create_element('fragment', {}, ['> ', props['children'], '\n\n'])
-
-
-def unstyled(props):
-    return DOM.create_element('fragment', {}, [props['children'], '\n\n'])
-
-
-def code_block(props):
-    return DOM.create_element('fragment', {}, ['```\n', props['children'], '\n```\n\n'])
-
-
-def ul_li(props):
-    list_indent = '  ' * props['block']['depth']
-    return DOM.create_element('fragment', {}, [list_indent, '* ', props['children'], '\n'])
-
-
-def ol_li(props):
-    list_indent = '  ' * props['block']['depth']
-    return DOM.create_element('fragment', {}, [list_indent, '1. ', props['children'], '\n'])
-
-
-def ul_list(props):
-    return DOM.create_element('fragment', {}, [])
-
-
-def ol_list(props):
-    return DOM.create_element('fragment', {}, [])
-
+from draftjs_exporter_markdown import BLOCK_MAP, ENTITY_DECORATORS, STYLE_MAP
 
 if __name__ == '__main__':
     config = {
-        # `block_map` is a mapping from Draft.js block types to a definition of their HTML representation.
-        # Extend BLOCK_MAP to start with sane defaults, or make your own from scratch.
-        'block_map': {
-            # The most basic mapping format, block type to tag name.
-            BLOCK_TYPES.UNSTYLED: unstyled,
-            BLOCK_TYPES.HEADER_TWO: header_two,
-            BLOCK_TYPES.HEADER_THREE: header_three,
-            # Add a wrapper (and wrapper_props) to wrap adjacent blocks.
-            BLOCK_TYPES.UNORDERED_LIST_ITEM: {
-                'element': ul_li,
-                'wrapper': ul_list,
-            },
-            # Use a custom component for more flexibility (reading block data or depth).
-            BLOCK_TYPES.BLOCKQUOTE: blockquote,
-            BLOCK_TYPES.ATOMIC: render_children,
-            BLOCK_TYPES.ORDERED_LIST_ITEM: {
-                'element': ol_li,
-                'wrapper': ol_list,
-            },
-            BLOCK_TYPES.CODE: code_block,
-            # Provide a fallback component (advanced).
-            BLOCK_TYPES.FALLBACK: block_fallback
-        },
-        # `style_map` defines the HTML representation of inline elements.
-        # Extend STYLE_MAP to start with sane defaults, or make your own from scratch.
-        'style_map': {
-            # Use the same mapping format as in the `block_map`.
-            'KBD': 'kbd',
-            # The `style` prop can be defined as a dict, that will automatically be converted to a string.
-            'HIGHLIGHT': {'element': 'strong', 'props': {'style': {'textDecoration': 'underline'}}},
-            'CODE': lambda props: '`{0}`'.format(props['children']),
-            'BOLD': bold,
-            'ITALIC': italic,
-            'UNDERLINE': underline,
-            'STRIKETHROUGH': strikethrough,
-        },
-        'entity_decorators': {
-            # Map entities to components so they can be rendered with their data.
-            ENTITY_TYPES.IMAGE: image,
-            ENTITY_TYPES.LINK: link,
-            # Lambdas work too.
-            ENTITY_TYPES.HORIZONTAL_RULE: lambda props: DOM.create_element('fragment', {}, '---\n\n'),
-            # Discard those entities.
-            ENTITY_TYPES.EMBED: None,
-            # Provide a fallback component (advanced).
-            ENTITY_TYPES.FALLBACK: entity_fallback,
-        },
-        'composite_decorators': [
-            {
-                'strategy': LINKIFY_RE,
-                'component': linkify,
-            },
-        ],
-        'engine': 'markdown.DOMMarkwdown',
+        'block_map': BLOCK_MAP,
+        'style_map': STYLE_MAP,
+        'entity_decorators': ENTITY_DECORATORS,
+        'engine': 'draftjs_exporter_markdown.dom_markdown.DOMMarkwdown',
     }
 
     exporter = HTML(config)
@@ -239,17 +63,6 @@ if __name__ == '__main__':
                 "mutability": "MUTABLE",
                 "data": {
                     "url": "http://embed.ly/"
-                }
-            },
-            "7": {
-                "type": "EMBED",
-                "mutability": "IMMUTABLE",
-                "data": {
-                    "url": "http://www.youtube.com/watch?v=feUYwoLhE_4",
-                    "title": "React.js Conf 2016 - Isaac Salier-Hellendag - Rich Text Editing with React",
-                    "providerName": "YouTube",
-                    "authorName": "Facebook Developers",
-                    "thumbnail": "https://i.ytimg.com/vi/feUYwoLhE_4/hqdefault.jpg"
                 }
             },
             "8": {
@@ -414,7 +227,7 @@ if __name__ == '__main__':
             }, {
                 "offset": 71,
                 "length": 7,
-                "style": "KBD"
+                "style": "KEYBOARD"
             }],
             "entityRanges": [],
             "data": {}
@@ -435,10 +248,6 @@ if __name__ == '__main__':
                 "offset": 14,
                 "length": 11,
                 "style": "ITALIC"
-            }, {
-                "offset": 25,
-                "length": 13,
-                "style": "HIGHLIGHT"
             }],
             "entityRanges": [],
             "data": {}
@@ -512,18 +321,6 @@ if __name__ == '__main__':
                 "offset": 0,
                 "length": 1,
                 "key": 5
-            }],
-            "data": {}
-        }, {
-            "key": "f7s8c",
-            "text": " ",
-            "type": "atomic",
-            "depth": 0,
-            "inlineStyleRanges": [],
-            "entityRanges": [{
-                "offset": 0,
-                "length": 1,
-                "key": 7
             }],
             "data": {}
         }, {
