@@ -38,6 +38,7 @@ class Elt(object):
     This class doesn't do much, but the exporter relies on
     comparing elements by reference so it's useful nonetheless.
     """
+
     def __init__(self, type_, attr, markup=None):
         self.type = type_
         self.attr = attr
@@ -90,7 +91,8 @@ class DOMMarkwdown(DOMEngine):
     def render(elt):
         type_ = elt.type
         attr = DOMMarkwdown.render_attrs(elt.attr) if elt.attr else ''
-        children = DOMMarkwdown.render_children(elt.children) if elt.children else ''
+        children = DOMMarkwdown.render_children(
+            elt.children) if elt.children else ''
 
         if type_ == 'fragment':
             return children
@@ -107,7 +109,8 @@ class DOMMarkwdown(DOMEngine):
     def render_debug(elt):
         type_ = elt.type
         attr = DOMMarkwdown.render_attrs(elt.attr) if elt.attr else ''
-        children = DOMMarkwdown.render_children(elt.children) if elt.children else ''
+        children = DOMMarkwdown.render_children(
+            elt.children) if elt.children else ''
 
         if type_ in VOID_ELEMENTS:
             return '<%s%s/>' % (type_, attr)

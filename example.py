@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 from draftjs_exporter.html import HTML
 
 from draftjs_exporter_markdown import BLOCK_MAP, ENTITY_DECORATORS, STYLE_MAP

@@ -1,0 +1,28 @@
+language: python
+cache:
+  pip: true
+  directories:
+  - node_modules
+matrix:
+  include:
+   - env: TOXENV=py27
+     python: 2.7
+   - env: TOXENV=py36
+     python: 3.6
+install:
+- nvm install
+- npm install
+- npm install -g @commitlint/travis-cli
+- make init
+- pip install coveralls
+script:
+- make test-ci
+- commitlint-travis
+- npm run release -- --dry-run
+after_success:
+- coveralls
+branches:
+  except:
+  - gh-pages
+notifications:
+  email: false

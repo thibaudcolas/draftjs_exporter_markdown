@@ -1,3 +1,5 @@
+from __future__ import absolute_import, unicode_literals
+
 from draftjs_exporter.constants import BLOCK_TYPES, ENTITY_TYPES, INLINE_STYLES
 from draftjs_exporter.defaults import STYLE_MAP as HTML_STYLE_MAP
 from draftjs_exporter.defaults import BLOCK_MAP as HTML_BLOCK_MAP
@@ -9,9 +11,12 @@ from .styles import inline_style
 
 __title__ = 'draftjs_exporter_markdown'
 __version__ = '0.1.0'
+__description__ = 'Library to convert rich text from Draft.js raw ContentState to Markdown, based on draftjs_exporter'
+__url__ = 'https://github.com/thibaudcolas/draftjs_exporter_markdown'
 __author__ = 'Thibaud Colas'
+__author_email__ = 'thibaudcolas@gmail.com'
 __license__ = 'MIT'
-__copyright__ = 'Copyright 2018-present Thibaud Colas'
+__copyright__ = 'Copyright 2018-present %s' % __author__
 
 
 BLOCK_MAP = dict(HTML_BLOCK_MAP, **{

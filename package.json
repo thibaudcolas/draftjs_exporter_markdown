@@ -1,0 +1,42 @@
+{
+  "name": "draftjs_exporter_markdown",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Library to convert rich text from Draft.js raw ContentState to Markdown, based on draftjs_exporter",
+  "author": "Thibaud Colas",
+  "license": "MIT",
+  "homepage": "https://github.com/thibaudcolas/draftjs_exporter_markdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thibaudcolas/draftjs_exporter_markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thibaudcolas/draftjs_exporter_markdown/issues"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "proseWrap": "preserve"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^5.2.8",
+    "@commitlint/config-conventional": "^5.2.3",
+    "prettier": "^1.11.0",
+    "standard-version": "^4.3.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "linter:js": "prettier --list-different",
+    "linter:json": "prettier --list-different",
+    "linter:md": "prettier --list-different",
+    "linter:commit": "commitlint",
+    "formatter": "prettier --write",
+    "release": "standard-version --no-verify"
+  }
+}
