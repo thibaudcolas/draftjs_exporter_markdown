@@ -54,6 +54,10 @@ class DOMMarkwdown(DOMEngine):
         return Elt(type_, attr)
 
     @staticmethod
+    def parse_html(markup):
+        return Elt.from_html(markup)
+
+    @staticmethod
     def append_child(elt, child):
         # This check is necessary because the current wrapper_state implementation
         # has an issue where it inserts elements multiple times.
@@ -67,7 +71,7 @@ class DOMMarkwdown(DOMEngine):
 
     @staticmethod
     def render_attrs(attr):
-        return ''.join(sorted([' %s="%s"' % (k, v) for k, v in attr.items()]))
+        return ''.join(sorted([' %s="%s"' % (k, escape(v)) for k, v in attr.items()]))
 
     @staticmethod
     def render_children(children):
