@@ -37,6 +37,14 @@ class TestDOMMarkwdown(unittest.TestCase):
         self.assertEqual(DOMMarkwdown.render_debug(
             parent), '<p><br/><br/></p>')
 
+    def test_append_child_same_elements(self):
+        elt = DOMMarkwdown.create_tag('br')
+        parent = DOMMarkwdown.create_tag('p')
+        DOMMarkwdown.append_child(parent, elt)
+        DOMMarkwdown.append_child(parent, elt)
+        self.assertEqual(DOMMarkwdown.render_debug(
+            parent), '<p><br/></p>')
+
     def test_render_attrs(self):
         self.assertEqual(DOMMarkwdown.render_attrs({
             'src': 'src.png',

@@ -47,6 +47,7 @@ class Elt(object):
 class DOMMarkwdown(DOMEngine):
     """
     Based on https://github.com/springload/draftjs_exporter/blob/master/draftjs_exporter/engines/string.py.
+    The implementation is near-identical, except for escaping: no escaping is necessary for Markdown.
     """
 
     @staticmethod
@@ -62,9 +63,6 @@ class DOMMarkwdown(DOMEngine):
         # This check is necessary because the current wrapper_state implementation
         # has an issue where it inserts elements multiple times.
         # This must be skipped for text, which can be duplicated.
-        if isinstance(elt, tuple):
-            print(child.children)
-            return
         is_existing_ref = isinstance(child, Elt) and child in elt.children
         if not is_existing_ref:
             elt.children.append(child)
@@ -97,15 +95,4 @@ class DOMMarkwdown(DOMEngine):
 
     @staticmethod
     def render_debug(elt):
-        type_ = elt.type
-        attr = DOMMarkwdown.render_attrs(elt.attr) if elt.attr else ''
-        children = DOMMarkwdown.render_children(
-            elt.children) if elt.children else ''
-
-        if type_ in VOID_ELEMENTS:
-            return '<%s%s/>' % (type_, attr)
-
-        if type_ == 'escaped_html':
-            return elt.markup
-
-        return '<%s%s>%s</%s>' % (type_, attr, children, type_)
+        return DOMMarkwdown.render(elt)
