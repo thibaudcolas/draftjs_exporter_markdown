@@ -3,7 +3,7 @@ from __future__ import absolute_import, unicode_literals
 import unittest
 
 from draftjs_exporter.dom import DOM
-from draftjs_exporter_markdown.markdown import block, inline, line
+from draftjs_exporter_markdown.markdown import block, inline
 
 
 class TestMarkdown(unittest.TestCase):
@@ -12,6 +12,3 @@ class TestMarkdown(unittest.TestCase):
 
     def test_block(self):
         self.assertEqual(DOM.render(block(['test'])), 'test\n\n')
-
-    def test_line(self):
-        self.assertEqual(DOM.render(line(['test'])), 'test\n')

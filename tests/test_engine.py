@@ -1,11 +1,11 @@
 from __future__ import absolute_import, unicode_literals
 
-import unittest
+from unittest import TestCase
 
 from draftjs_exporter_markdown.engine import DOMMarkwdown
 
 
-class TestDOMMarkwdown(unittest.TestCase):
+class TestDOMMarkwdown(TestCase):
     def test_create_tag(self):
         self.assertEqual(DOMMarkwdown.render_debug(DOMMarkwdown.create_tag(
             'p', {'class': 'intro'})), '<p class="intro"></p>')

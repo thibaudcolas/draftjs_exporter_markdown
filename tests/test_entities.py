@@ -1,12 +1,12 @@
 from __future__ import absolute_import, unicode_literals
 
-import unittest
+from unittest import TestCase
 
 from draftjs_exporter.dom import DOM
 from draftjs_exporter_markdown.entities import horizontal_rule, image, link
 
 
-class TestEntities(unittest.TestCase):
+class TestEntities(TestCase):
     def test_horizontal_rule(self):
         self.assertEqual(DOM.render(horizontal_rule({})), '---\n\n')
 

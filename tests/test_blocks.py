@@ -1,12 +1,12 @@
 from __future__ import absolute_import, unicode_literals
 
-import unittest
+from unittest import TestCase
 
 from draftjs_exporter.dom import DOM
 from draftjs_exporter_markdown.blocks import code_block, list_wrapper, ol, prefixed_block, ul
 
 
-class TestBlocks(unittest.TestCase):
+class TestBlocks(TestCase):
     def test_prefixed_block(self):
         self.assertEqual(DOM.render(prefixed_block('> ')({
             'children': 'test'
@@ -38,29 +38,34 @@ class TestBlocks(unittest.TestCase):
             'children': 'test',
         })), '* test\n')
 
-    def test_ul_depth(self):
-        self.assertEqual(DOM.render(ul({
-            'block': {
-                'depth': 2,
-            },
-            'children': 'test',
-        })), '    * test\n')
-
     def test_ol(self):
+        block = {
+            'key': 'a',
+            'type': 'ordered-list-item',
+            'depth': 0,
+        }
         self.assertEqual(DOM.render(ol({
-            'block': {
-                'depth': 0,
-            },
+            'block': block,
+            'blocks': [
+                block,
+            ],
             'children': 'test',
-        })), '1. test\n')
+        })), '1. test\n\n')
 
-    def test_ol_depth(self):
+    def test_ol_numbering(self):
+        block = {
+            'key': 'a',
+            'type': 'ordered-list-item',
+            'depth': 0,
+        }
         self.assertEqual(DOM.render(ol({
-            'block': {
-                'depth': 2,
-            },
+            'block': block,
+            'blocks': [
+                dict(block, **{'key': 'b'}),
+                block,
+            ],
             'children': 'test',
-        })), '    1. test\n')
+        })), '2. test\n\n')
 
     def test_list_wrapper(self):
         self.assertEqual(DOM.render(list_wrapper({})), '')

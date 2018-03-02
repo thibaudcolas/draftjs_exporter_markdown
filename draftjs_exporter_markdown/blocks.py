@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
-from .markdown import block, inline, line
+from .lists import get_numbered_li_prefix, list_item
+from .markdown import block, inline
 
 
 def prefixed_block(prefix):
@@ -12,13 +13,12 @@ def code_block(props):
 
 
 def ul(props):
-    list_indent = '  ' * props['block']['depth']
-    return line([list_indent, '* ', props['children']])
+    return list_item('* ', props)
 
 
 def ol(props):
-    list_indent = '  ' * props['block']['depth']
-    return line([list_indent, '1. ', props['children']])
+    prefix = get_numbered_li_prefix(props)
+    return list_item(prefix, props)
 
 
 def list_wrapper(props):

@@ -10,6 +10,9 @@
 
 The exporter aims to provide sensible defaults from basic block types and inline styles to HTML, that can easily be customised when required. For more advanced scenarios, an API is provided (mimicking React's [`createElement`](https://facebook.github.io/react/docs/top-level-api.html#react.createelement)) to create custom rendering components of arbitrary complexity.
 
+1. It has no dependencies
+2. And is performance-tuned
+
 ---
 
 Here are some features worth highlighting:
@@ -28,14 +31,17 @@ elements.
     * Depth can go back and forth, it works fiiine (3) - 2
   * Depth can go back and forth, it works fiiine (4) - 1
 * Depth can go back and forth, it works fiiine (5) - 0
+
 ![Test image alt text](https://placekitten.com/g/300/200)
 
 ### For developers 🚀
 
 1. Import the library
-1. Define your configuration
-1. Go!
-  1. Optionally, define your custom components.
+2. Define your configuration
+  1. Go!
+3. Optionally, define your custom components.
+  1. Optionally, define a custom engine.
+
 ```python
 def blockquote(props):
     block_data = props['block']['data']
