@@ -20,7 +20,7 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2018-present %s' % __author__
 
 dependencies = [
-    'draftjs_exporter>=2.0.0,<3',
+    'draftjs_exporter>=2.1.0,<3',
 ]
 
 testing_dependencies = [
