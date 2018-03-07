@@ -8,10 +8,6 @@ def prefixed_block(prefix):
     return lambda props: block([prefix, props['children']])
 
 
-def code_block(props):
-    return block(['```', props['block']['data'].get('language', ''), '\n', props['children'], '\n```'])
-
-
 def ul(props):
     return list_item('* ', props)
 

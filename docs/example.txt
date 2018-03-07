@@ -42,12 +42,20 @@ elements.
 3. Optionally, define your custom components.
   1. Optionally, define a custom engine.
 
-```python
+```
 def blockquote(props):
     block_data = props['block']['data']
     return DOM.create_element('blockquote', {
         'cite': block_data.get('cite')
     }, props['children'])
+```
+
+There again, Draft.js having a fixed schema and an API makes this much simpler:
+
+```
+const contentLength = content
+  .getBlockMap()
+  .reduce((total, block) => block.getText().length, 0);
 ```
 
 Voilà!

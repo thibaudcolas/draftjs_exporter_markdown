@@ -3,7 +3,7 @@ from __future__ import absolute_import, unicode_literals
 from unittest import TestCase
 
 from draftjs_exporter.dom import DOM
-from draftjs_exporter_markdown.blocks import code_block, list_wrapper, ol, prefixed_block, ul
+from draftjs_exporter_markdown.blocks import list_wrapper, ol, prefixed_block, ul
 
 
 class TestBlocks(TestCase):
@@ -11,24 +11,6 @@ class TestBlocks(TestCase):
         self.assertEqual(DOM.render(prefixed_block('> ')({
             'children': 'test'
         })), '> test\n\n')
-
-    def test_code_block(self):
-        self.assertEqual(DOM.render(code_block({
-            'block': {
-                'data': {},
-            },
-            'children': 'test',
-        })), '```\ntest\n```\n\n')
-
-    def test_code_block_language(self):
-        self.assertEqual(DOM.render(code_block({
-            'block': {
-                'data': {
-                    'language': 'css',
-                },
-            },
-            'children': 'test',
-        })), '```css\ntest\n```\n\n')
 
     def test_ul(self):
         self.assertEqual(DOM.render(ul({

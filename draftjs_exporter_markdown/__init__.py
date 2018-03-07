@@ -4,7 +4,8 @@ from draftjs_exporter.constants import BLOCK_TYPES, ENTITY_TYPES, INLINE_STYLES
 from draftjs_exporter.defaults import STYLE_MAP as HTML_STYLE_MAP
 from draftjs_exporter.defaults import BLOCK_MAP as HTML_BLOCK_MAP
 
-from .blocks import code_block, list_wrapper, prefixed_block, ol, ul
+from .blocks import list_wrapper, prefixed_block, ol, ul
+from .code import code_element, code_wrapper
 from .entities import image, link, horizontal_rule
 from .styles import inline_style
 
@@ -26,7 +27,10 @@ BLOCK_MAP = dict(HTML_BLOCK_MAP, **{
         'wrapper': list_wrapper,
     },
     BLOCK_TYPES.BLOCKQUOTE: prefixed_block('> '),
-    BLOCK_TYPES.CODE: code_block,
+    BLOCK_TYPES.CODE: {
+        'element': code_element,
+        'wrapper': code_wrapper,
+    },
 })
 
 STYLE_MAP = dict(HTML_STYLE_MAP, **{

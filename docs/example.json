@@ -452,6 +452,43 @@
       }
     },
     {
+      "key": "b80ba",
+      "text":
+        "There again, Draft.js having a fixed schema and an API makes this much simpler:",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "7crv2",
+      "text": "const contentLength = content",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "4vcb8",
+      "text": "  .getBlockMap()",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "17cqe",
+      "text": "  .reduce((total, block) => block.getText().length, 0);",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
       "key": "1nols",
       "text": "Voilà!",
       "type": "unstyled",
