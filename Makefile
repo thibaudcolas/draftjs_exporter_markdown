@@ -15,14 +15,17 @@ lint: ## Lint the project.
 test: ## Test the project.
 	python -m unittest discover
 
+test-watch: ## Restarts the tests whenever a file changes.
+	nodemon -q -e py -w tests -w draftjs_exporter_markdown -x "clear && make test -s || true"
+
 test-coverage: ## Run the tests while generating test coverage data.
 	coverage run -m unittest discover && coverage report && coverage html
 
 test-ci: ## Continuous integration test suite.
 	tox
 
-dev: ## Runs the example code
-	python example.py
+dev: ## Restarts the example whenever a file changes.
+	nodemon -q -e py -w tests -w draftjs_exporter_markdown -w example.py  -x "clear && python example.py || true"
 
 clean-pyc: ## Remove Python file artifacts.
 	find . -name '*.pyc' -exec rm -f {} +

@@ -82,6 +82,8 @@ cd draftjs_exporter_markdown/
 # Install dependencies
 nvm install
 npm install
+# For tests and development in watch mode.
+npm install -g nodemon
 
 # Install the Python environment.
 virtualenv .venv
