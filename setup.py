@@ -52,7 +52,7 @@ def md2pypi(filename):
     '''
     Load .md (markdown) file and sanitize it for PyPI.
     '''
-    content = io.open(filename).read()
+    content = io.open(filename, encoding="utf-8").read()
 
     for match in RE_MD_CODE_BLOCK.finditer(content):
         rst_block = '\n'.join(
