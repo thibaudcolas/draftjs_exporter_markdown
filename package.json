@@ -37,6 +37,6 @@
     "linter:md": "prettier --list-different",
     "linter:commit": "commitlint",
     "formatter": "prettier --write",
-    "release": "standard-version --no-verify"
+    "release": "standard-version --no-verify --commit-all"
   }
 }
