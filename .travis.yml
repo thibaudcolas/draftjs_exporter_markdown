@@ -15,6 +15,9 @@ install:
 - make init
 - pip install coveralls
 script:
+  # Test Git hooks in CI, to make sure script upgrades do not break them.
+- ./.git/hooks/pre-commit
+- git log -1 --pretty=%B >> latest.log && ./.git/hooks/commit-msg latest.log
 - make test-ci
 - npx commitlint-travis
 - npm run release -- --dry-run

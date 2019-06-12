@@ -33,11 +33,6 @@
   },
   "dependencies": {},
   "scripts": {
-    "linter:js": "prettier --list-different",
-    "linter:json": "prettier --list-different",
-    "linter:md": "prettier --list-different",
-    "linter:commit": "commitlint",
-    "formatter": "prettier --write",
     "release": "standard-version --no-verify --commit-all"
   }
 }

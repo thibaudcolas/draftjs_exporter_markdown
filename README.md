@@ -76,9 +76,6 @@ Contrary to the main Draft.js exporter,
 git clone git@github.com:thibaudcolas/draftjs_exporter_markdown.git
 cd draftjs_exporter_markdown/
 
-# Install the git hooks.
-./.githooks/deploy
-
 # Install dependencies
 nvm install
 npm install
