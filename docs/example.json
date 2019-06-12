@@ -11,8 +11,7 @@
       "type": "LINK",
       "mutability": "MUTABLE",
       "data": {
-        "url":
-          "https://facebook.github.io/react/docs/top-level-api.html#react.createelement"
+        "url": "https://facebook.github.io/react/docs/top-level-api.html#react.createelement"
       }
     },
     "2": {
@@ -97,8 +96,7 @@
     },
     {
       "key": "32lnv",
-      "text":
-        "The exporter aims to provide sensible defaults from basic block types and inline styles to HTML, that can easily be customised when required. For more advanced scenarios, an API is provided (mimicking React's createElement) to create custom rendering components of arbitrary complexity.",
+      "text": "The exporter aims to provide sensible defaults from basic block types and inline styles to HTML, that can easily be customised when required. For more advanced scenarios, an API is provided (mimicking React's createElement) to create custom rendering components of arbitrary complexity.",
       "type": "unstyled",
       "depth": 0,
       "inlineStyleRanges": [
@@ -176,8 +174,7 @@
     },
     {
       "key": "f4gp0",
-      "text":
-        "Automatic conversion of entity data to HTML attributes (int & boolean to string, style object to style string).",
+      "text": "Automatic conversion of entity data to HTML attributes (int & boolean to string, style object to style string).",
       "type": "unordered-list-item",
       "depth": 0,
       "inlineStyleRanges": [
@@ -237,8 +234,7 @@
     },
     {
       "key": "5qfeb",
-      "text":
-        "Common text styles: Bold, Italic, Underline, Monospace, Strikethrough. cmd + b",
+      "text": "Common text styles: Bold, Italic, Underline, Monospace, Strikethrough. cmd + b",
       "type": "unordered-list-item",
       "depth": 2,
       "inlineStyleRanges": [
@@ -441,8 +437,7 @@
     },
     {
       "key": "ed7hu",
-      "text":
-        "def blockquote(props):\n    block_data = props['block']['data']\n    return DOM.create_element('blockquote', {\n        'cite': block_data.get('cite')\n    }, props['children'])",
+      "text": "def blockquote(props):\n    block_data = props['block']['data']\n    return DOM.create_element('blockquote', {\n        'cite': block_data.get('cite')\n    }, props['children'])",
       "type": "code-block",
       "depth": 0,
       "inlineStyleRanges": [],
@@ -453,8 +448,7 @@
     },
     {
       "key": "b80ba",
-      "text":
-        "There again, Draft.js having a fixed schema and an API makes this much simpler:",
+      "text": "There again, Draft.js having a fixed schema and an API makes this much simpler:",
       "type": "unstyled",
       "depth": 0,
       "inlineStyleRanges": [],

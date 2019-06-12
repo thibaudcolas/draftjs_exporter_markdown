@@ -12,6 +12,7 @@ init: clean-pyc ## Install dependencies and initialise for development.
 lint: ## Lint the project.
 	flake8 draftjs_exporter_markdown tests example.py setup.py
 	isort --check-only --diff --recursive draftjs_exporter_markdown tests example.py setup.py
+	npm run lint
 
 test: ## Test the project.
 	python -m unittest discover

@@ -2,29 +2,29 @@ language: python
 cache:
   pip: true
   directories:
-  - node_modules
+    - node_modules
 matrix:
   include:
-   - env: TOXENV=py27
-     python: 2.7
-   - env: TOXENV=py36
-     python: 3.6
+    - env: TOXENV=py27
+      python: 2.7
+    - env: TOXENV=py36
+      python: 3.6
 install:
-- nvm install
-- npm install
-- make init
-- pip install coveralls
+  - nvm install
+  - npm install
+  - make init
+  - pip install coveralls
 script:
   # Test Git hooks in CI, to make sure script upgrades do not break them.
-- ./.git/hooks/pre-commit
-- git log -1 --pretty=%B >> latest.log && ./.git/hooks/commit-msg latest.log
-- make test-ci
-- npx commitlint-travis
-- npm run release -- --dry-run
+  - ./.git/hooks/pre-commit
+  - git log -1 --pretty=%B >> latest.log && ./.git/hooks/commit-msg latest.log
+  - make test-ci
+  - npx commitlint-travis
+  - npm run release -- --dry-run
 after_success:
-- coveralls
+  - coveralls
 branches:
   except:
-  - gh-pages
+    - gh-pages
 notifications:
   email: false

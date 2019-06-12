@@ -8,8 +8,8 @@
 
 This package is a Markdown export configuration for the [Draft.js exporter](https://github.com/springload/draftjs_exporter). Specifically, it provides:
 
-* A Markdown-friendly exporter engine, with fallbacks to HTML tags.
-* Configuration for basic Markdown formatting.
+- A Markdown-friendly exporter engine, with fallbacks to HTML tags.
+- Configuration for basic Markdown formatting.
 
 First, install the package:
 
@@ -59,14 +59,14 @@ Please refer to the [Draft.js exporter configuration documentation](https://gith
 
 The built-in configuration provides support for:
 
-* Inline styles: bold, italic, strikethrough, code
-* Blocks: paragraphs, heading levels, bullet and number lists, code blocks, blockquote
-* Images, links, and horizontal rules
+- Inline styles: bold, italic, strikethrough, code
+- Blocks: paragraphs, heading levels, bullet and number lists, code blocks, blockquote
+- Images, links, and horizontal rules
 
 Contrary to the main Draft.js exporter,
 
-* Nested / overlapping styles aren't supported.
-* None of the content is escaped (HTML escaping is unnecessary for Markdown, and there is no Markdown escaping).
+- Nested / overlapping styles aren't supported.
+- None of the content is escaped (HTML escaping is unnecessary for Markdown, and there is no Markdown escaping).
 
 ## Development
 
