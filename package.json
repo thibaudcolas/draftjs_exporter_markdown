@@ -28,11 +28,13 @@
     "@commitlint/cli": "^5.2.8",
     "@commitlint/config-conventional": "^5.2.3",
     "@commitlint/travis-cli": "^5.2.8",
-    "prettier": "^1.11.0",
+    "prettier": "^1.18.2",
     "standard-version": "^4.3.0"
   },
   "dependencies": {},
   "scripts": {
-    "release": "standard-version --no-verify --commit-all"
+      "lint": "prettier --check '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
+      "format": "prettier --write '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
+      "release": "standard-version --no-verify --commit-all"
   }
 }

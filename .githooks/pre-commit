@@ -45,7 +45,7 @@ fi
 
 if [ -n "$JS_STAGED" ];
 then
-    npx prettier --list-different $JS_STAGED
+    npx prettier --check $JS_STAGED
 fi
 
 if [ -n "$JSON_FULLY_STAGED" ];
@@ -56,7 +56,7 @@ fi
 
 if [ -n "$JSON_STAGED" ];
 then
-    npx prettier --list-different $JSON_STAGED
+    npx prettier --check $JSON_STAGED
 fi
 
 if [ -n "$MD_FULLY_STAGED" ];
@@ -67,7 +67,7 @@ fi
 
 if [ -n "$MD_STAGED" ];
 then
-    npx prettier --list-different $MD_STAGED
+    npx prettier --check $MD_STAGED
 fi
 
 if [ -n "$PY_FULLY_STAGED" ];
