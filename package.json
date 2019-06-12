@@ -27,6 +27,7 @@
   "devDependencies": {
     "@commitlint/cli": "^5.2.8",
     "@commitlint/config-conventional": "^5.2.3",
+    "@commitlint/travis-cli": "^5.2.8",
     "prettier": "^1.11.0",
     "standard-version": "^4.3.0"
   },

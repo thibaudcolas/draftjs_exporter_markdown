@@ -12,12 +12,11 @@ matrix:
 install:
 - nvm install
 - npm install
-- npm install -g @commitlint/travis-cli
 - make init
 - pip install coveralls
 script:
 - make test-ci
-- commitlint-travis
+- npx commitlint-travis
 - npm run release -- --dry-run
 after_success:
 - coveralls
