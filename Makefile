@@ -7,7 +7,7 @@ help: ## See what commands are available.
 init: clean-pyc ## Install dependencies and initialise for development.
 	pip install --upgrade pip
 	pip install -e '.[testing,docs]' -U
-	./.githooks/deploy.sh
+	./.githooks/deploy
 
 lint: ## Lint the project.
 	flake8 draftjs_exporter_markdown tests example.py setup.py
