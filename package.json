@@ -33,8 +33,8 @@
   },
   "dependencies": {},
   "scripts": {
-      "lint": "prettier --check '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
-      "format": "prettier --write '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
-      "release": "standard-version --no-verify --commit-all"
+    "lint": "prettier --check '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
+    "format": "prettier --write '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
+    "release": "standard-version --no-verify --commit-all"
   }
 }
