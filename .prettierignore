@@ -1,4 +1,5 @@
 package.json
 package-lock.json
 .tox
-.travis.ymldple.json
+.venv
+coverage_html_report

@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 from unittest import TestCase
 
 from draftjs_exporter.dom import DOM
+
 from draftjs_exporter_markdown.blocks import list_wrapper, ol, prefixed_block, ul
 
 

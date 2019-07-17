@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 import unittest
 
 from draftjs_exporter.dom import DOM
+
 from draftjs_exporter_markdown.markdown import block, inline
 
 
