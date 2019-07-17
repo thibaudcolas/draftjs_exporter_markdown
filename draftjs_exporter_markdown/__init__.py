@@ -1,5 +1,3 @@
-from __future__ import absolute_import, unicode_literals
-
 from draftjs_exporter.constants import BLOCK_TYPES, ENTITY_TYPES, INLINE_STYLES
 from draftjs_exporter.defaults import BLOCK_MAP as HTML_BLOCK_MAP
 from draftjs_exporter.defaults import STYLE_MAP as HTML_STYLE_MAP

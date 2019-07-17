@@ -1,5 +1,3 @@
-from __future__ import absolute_import, unicode_literals
-
 from unittest import TestCase
 
 from draftjs_exporter_markdown.engine import DOMMarkwdown

@@ -1,5 +1,3 @@
-from __future__ import absolute_import, unicode_literals
-
 from .lists import get_numbered_li_prefix, list_item
 from .markdown import block, inline
 
