@@ -1,14 +1,13 @@
 from __future__ import absolute_import, unicode_literals
 
 from draftjs_exporter.constants import BLOCK_TYPES, ENTITY_TYPES, INLINE_STYLES
-from draftjs_exporter.defaults import STYLE_MAP as HTML_STYLE_MAP
 from draftjs_exporter.defaults import BLOCK_MAP as HTML_BLOCK_MAP
+from draftjs_exporter.defaults import STYLE_MAP as HTML_STYLE_MAP
 
-from .blocks import list_wrapper, prefixed_block, ol, ul
+from .blocks import list_wrapper, ol, prefixed_block, ul
 from .code import code_element, code_wrapper
-from .entities import image, link, horizontal_rule
+from .entities import horizontal_rule, image, link
 from .styles import inline_style
-
 
 BLOCK_MAP = dict(HTML_BLOCK_MAP, **{
     BLOCK_TYPES.UNSTYLED: prefixed_block(''),
