@@ -1,17 +1,14 @@
 language: python
 cache:
   pip: true
-  directories:
-    - node_modules
 matrix:
   include:
     - env: TOXENV=py36
       python: 3.6
 install:
   - nvm install
-  - npm install
+  - npm ci
   - make init
-  - pip install coveralls
 script:
   # Test Git hooks in CI, to make sure script upgrades do not break them.
   - ./.git/hooks/pre-commit
