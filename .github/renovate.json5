@@ -43,5 +43,10 @@
       groupName: "commitlint",
       automerge: true,
     },
+    {
+      packageNames: ["coveralls"],
+      groupName: "coveralls",
+      automerge: true,
+    },
   ],
 }
