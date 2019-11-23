@@ -29,7 +29,7 @@
     "@commitlint/config-conventional": "8.2.0",
     "@commitlint/travis-cli": "8.2.0",
     "prettier": "1.19.1",
-    "standard-version": "7.0.0"
+    "standard-version": "7.0.1"
   },
   "dependencies": {},
   "scripts": {
