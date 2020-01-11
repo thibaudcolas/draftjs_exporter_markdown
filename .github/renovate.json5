@@ -48,5 +48,10 @@
       groupName: "coveralls",
       automerge: true,
     },
+    {
+      packageNames: ["draftjs_exporter"],
+      groupName: "draftjs_exporter",
+      automerge: true,
+    },
   ],
 }
