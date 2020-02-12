@@ -13,9 +13,7 @@ with open('docs/example.json') as example:
     content_state = json.load(example)
 
 if __name__ == '__main__':
-    # Initialise the exporter.
     exporter = HTML({
-        # Those configurations are overridable like for draftjs_exporter.
         'block_map': BLOCK_MAP,
         'style_map': STYLE_MAP,
         'entity_decorators': ENTITY_DECORATORS,
