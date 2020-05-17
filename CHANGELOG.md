@@ -1,6 +1,14 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.2.2](https://github.com/thibaudcolas/draftjs_exporter_markdown/compare/v0.2.1...v0.2.2) (2020-05-17)
+
+
+### Features
+
+* **api:** remove Python 2.7 support ([6bd3988](https://github.com/thibaudcolas/draftjs_exporter_markdown/commit/6bd39882a00f6829df1fd260f41617559941a9d4))
+* **deps:** add support for draftjs_exporter v4.0.0 ([b1a690a](https://github.com/thibaudcolas/draftjs_exporter_markdown/commit/b1a690a98c28028ef3675578c42a94e0a424bd48))
 
 <a name="0.2.1"></a>
 
