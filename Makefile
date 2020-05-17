@@ -38,4 +38,4 @@ release: ## Prepare a release for publication.
 	npm run release
 
 publish: ## Publishes a new version to pypi
-	rm dist/* && python setup.py sdist && twine upload dist/* && echo 'Success! Go to https://pypi.python.org/pypi/draftjs_exporter_markdown and check that all is well.'
+	rm -f dist/* && python setup.py sdist && twine upload dist/* && echo 'Success! Go to https://pypi.python.org/pypi/draftjs_exporter_markdown and check that all is well.'
