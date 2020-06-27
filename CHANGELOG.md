@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/thibaudcolas/draftjs_exporter_markdown/compare/v0.2.2...v0.2.3) (2020-06-27)
+
+### Features
+
+- **release:** publish package as a wheel ([fb898e8](https://github.com/thibaudcolas/draftjs_exporter_markdown/commit/fb898e8c524c130a747cb8968ce367650d2b988b))
+
 ### [0.2.2](https://github.com/thibaudcolas/draftjs_exporter_markdown/compare/v0.2.1...v0.2.2) (2020-05-17)
 
 ### Features
