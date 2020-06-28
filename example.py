@@ -8,7 +8,7 @@ from draftjs_exporter_markdown import BLOCK_MAP, ENGINE, ENTITY_DECORATORS, STYL
 
 content_state = {}
 
-# Demo content from https://github.com/springload/draftjs_exporter/blob/master/example.py.
+# Demo content from https://github.com/springload/draftjs_exporter/blob/main/example.py.
 with open('docs/example.json') as example:
     content_state = json.load(example)
 

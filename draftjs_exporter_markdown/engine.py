@@ -36,7 +36,7 @@ class Elt(object):
 
 class DOMMarkwdown(DOMEngine):
     """
-    Based on https://github.com/springload/draftjs_exporter/blob/master/draftjs_exporter/engines/string.py.
+    Based on https://github.com/springload/draftjs_exporter/blob/main/draftjs_exporter/engines/string.py.
     The implementation is near-identical, except for escaping: no escaping is necessary for Markdown.
     """
 
