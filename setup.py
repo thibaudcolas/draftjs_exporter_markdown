@@ -25,7 +25,7 @@ testing_dependencies = [
     'coverage>=4.1.0',
     'flake8>=3.2.0',
     'autopep8>=1.3.3',
-    'isort==4.3.21',
+    'isort==5.0.9',
     'coveralls==2.1.1',
 ] + dependencies
 
