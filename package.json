@@ -25,9 +25,9 @@
     "proseWrap": "preserve"
   },
   "devDependencies": {
-    "@commitlint/cli": "9.1.2",
-    "@commitlint/config-conventional": "9.1.2",
-    "@commitlint/travis-cli": "9.1.2",
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@commitlint/travis-cli": "11.0.0",
     "prettier": "2.1.1",
     "standard-version": "9.0.0"
   },
