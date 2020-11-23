@@ -26,7 +26,7 @@ testing_dependencies = [
     'flake8>=3.2.0',
     'autopep8>=1.3.3',
     'isort==4.3.21',
-    'coveralls==2.1.2',
+    'coveralls==2.2.0',
 ] + dependencies
 
 documentation_dependencies = [
