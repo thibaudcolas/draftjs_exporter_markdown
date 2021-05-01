@@ -13,25 +13,6 @@ __author_email__ = 'thibaudcolas@gmail.com'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2018-present %s' % __author__
 
-dependencies = [
-    'draftjs_exporter>=2.1.0,<5',
-]
-
-testing_dependencies = [
-    # Required for running the tests.
-    'tox>=2.3.1',
-
-    # For coverage and PEP8 linting.
-    'coverage>=4.1.0',
-    'flake8>=3.2.0',
-    'autopep8>=1.3.3',
-    'isort==4.3.21',
-] + dependencies
-
-documentation_dependencies = [
-
-]
-
 with io.open('README.md', encoding='utf-8') as readme_file:
     long_description = readme_file.read()
 
@@ -68,10 +49,8 @@ setup(
     ],
     packages=find_packages(),
     include_package_data=True,
-    install_requires=dependencies,
-    extras_require={
-        'testing': testing_dependencies,
-        'docs': documentation_dependencies,
-    },
+    install_requires=[
+        'draftjs_exporter>=2.1.0,<5',
+    ],
     zip_safe=False,
 )
