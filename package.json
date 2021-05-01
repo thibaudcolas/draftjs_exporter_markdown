@@ -27,7 +27,6 @@
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "@commitlint/travis-cli": "11.0.0",
     "prettier": "2.1.2",
     "standard-version": "9.0.0"
   },
@@ -36,7 +35,6 @@
       "precommit": "npm run format"
     }
   },
-  "dependencies": {},
   "scripts": {
     "lint": "prettier --check '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
     "format": "prettier --write '**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
