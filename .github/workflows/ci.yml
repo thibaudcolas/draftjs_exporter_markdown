@@ -26,9 +26,13 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.6"
-      - run: make init
+      - run: make init && pip install coveralls==3.0.1
       - run: git log -1 --pretty=%B >> latest.log && ./.git/hooks/commit-msg latest.log
       - run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
         if: ${{ github.event_name == 'pull_request' }}
-      - run: make test-ci
+      - run: make test-coverage
+      - run: coveralls || true
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run release -- --dry-run
