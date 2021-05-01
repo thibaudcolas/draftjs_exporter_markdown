@@ -17,10 +17,12 @@ jobs:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
       - uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: |
+            ~/.npm
+            ~/.cache/pip
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/requirements.txt') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-
       - run: npm install --no-optional --no-audit --no-fund --progress=false
       - uses: actions/setup-python@v2
         with:
