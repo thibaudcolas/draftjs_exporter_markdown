@@ -22,7 +22,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm install --no-optional --no-audit --no-fund --progress=false
-      - run: npm run lint
       - uses: actions/setup-python@v2
         with:
           python-version: "3.6"
@@ -30,6 +29,7 @@ jobs:
       - run: git log -1 --pretty=%B >> latest.log && ./.git/hooks/commit-msg latest.log
       - run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
         if: ${{ github.event_name == 'pull_request' }}
+      - run: make lint
       - run: make test-coverage
       - run: coveralls || true
         env:
