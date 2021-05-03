@@ -9,7 +9,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "commits_count_incr=$(($COUNT+1))" >> $GITHUB_ENV
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          COUNT: ${{ github.event.pull_request.commits }}
       - uses: actions/checkout@v2
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          fetch-depth: ${{ env.commits_count_incr }}
+      - uses: actions/checkout@v2
+        if: ${{ github.event_name != 'pull_request' }}
       - id: nvm
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
       - uses: actions/setup-node@v2-beta
