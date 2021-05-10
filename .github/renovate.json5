@@ -51,5 +51,10 @@
       groupName: "draftjs_exporter",
       automerge: true,
     },
+    {
+      packageNames: ["flake8"],
+      groupName: "flake8",
+      automerge: true,
+    },
   ],
 }
