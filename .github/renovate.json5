@@ -56,5 +56,15 @@
       groupName: "flake8",
       automerge: true,
     },
+    {
+      packageNames: ["autopep8"],
+      groupName: "autopep8",
+      automerge: true,
+    },
+    {
+      packageNames: ["coverage"],
+      groupName: "coverage",
+      automerge: true,
+    },
   ],
 }
