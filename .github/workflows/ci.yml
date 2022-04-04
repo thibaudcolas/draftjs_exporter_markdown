@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - run: npm install --no-optional --no-audit --no-fund --progress=false
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.6"
       - run: make init && pip install coveralls==3.0.1
