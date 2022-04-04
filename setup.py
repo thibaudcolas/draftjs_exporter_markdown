@@ -50,7 +50,7 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     install_requires=[
-        'draftjs_exporter>=2.1.0,<5',
+        'draftjs_exporter>=5,<6',
     ],
     zip_safe=False,
 )
