@@ -4,7 +4,6 @@ import io
 
 from setuptools import find_packages, setup
 
-__title__ = 'draftjs_exporter_markdown'
 __version__ = '0.2.3'
 __description__ = 'Library to convert rich text from Draft.js raw ContentState to Markdown, based on draftjs_exporter'
 __url__ = 'https://github.com/thibaudcolas/draftjs_exporter_markdown'
@@ -17,7 +16,7 @@ with io.open('README.md', encoding='utf-8') as readme_file:
     long_description = readme_file.read()
 
 setup(
-    name=__title__,
+    name='draftjs_exporter_markdown',
     version=__version__,
     description=__description__,
     long_description=long_description,
@@ -50,7 +49,7 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     install_requires=[
-        'draftjs_exporter>=5,<6',
+        'draftjs_exporter>=2.1.0,<6',
     ],
     zip_safe=False,
 )
