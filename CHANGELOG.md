@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/thibaudcolas/draftjs_exporter_markdown/compare/v0.2.3...v0.2.4) (2022-04-05)
+
+### Features
+
+- **deps:** remove development dependencies from package extras ([5fcee41](https://github.com/thibaudcolas/draftjs_exporter_markdown/commit/5fcee415794d6288507b1902a4f4ba1100f88c72))
+- **deps:** support draftjs_exporter v5.0.0 ([abb17db](https://github.com/thibaudcolas/draftjs_exporter_markdown/commit/abb17db33a2105f1b3e0a262d9d920193fc6ab46))
+- **package:** clean up files packaged to PyPI ([a01c74f](https://github.com/thibaudcolas/draftjs_exporter_markdown/commit/a01c74f06664c30371443289eef9f47a2826e5cb))
+
 ### [0.2.3](https://github.com/thibaudcolas/draftjs_exporter_markdown/compare/v0.2.2...v0.2.3) (2020-06-27)
 
 ### Features

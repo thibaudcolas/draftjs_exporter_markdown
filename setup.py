@@ -4,7 +4,7 @@ import io
 
 from setuptools import find_packages, setup
 
-__version__ = '0.2.3'
+__version__ = '0.2.4'
 __description__ = 'Library to convert rich text from Draft.js raw ContentState to Markdown, based on draftjs_exporter'
 __url__ = 'https://github.com/thibaudcolas/draftjs_exporter_markdown'
 __author__ = 'Thibaud Colas'
