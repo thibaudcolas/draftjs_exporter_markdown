@@ -66,5 +66,10 @@
       groupName: "coverage",
       automerge: true,
     },
+    {
+      packagePatterns: ["^actions/"],
+      groupName: "actions",
+      automerge: true,
+    },
   ],
 }
