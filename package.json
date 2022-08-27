@@ -25,8 +25,8 @@
     "proseWrap": "preserve"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.0.3",
-    "@commitlint/config-conventional": "17.0.3",
+    "@commitlint/cli": "17.1.1",
+    "@commitlint/config-conventional": "17.1.0",
     "prettier": "2.7.1",
     "standard-version": "9.5.0"
   },
