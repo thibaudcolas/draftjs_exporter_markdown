@@ -4,5 +4,5 @@
 # For coverage and PEP8 linting.
 coverage==7.2.7
 flake8==5.0.4
-autopep8==2.0.0
+autopep8==2.3.2
 isort==4.3.21
