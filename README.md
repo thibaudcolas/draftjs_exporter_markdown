@@ -1,7 +1,5 @@
 # Draft.js exporter 🐍 - Markdown edition
 
-[![PyPI](https://img.shields.io/pypi/v/draftjs_exporter_markdown.svg)](https://pypi.org/project/draftjs_exporter_markdown/) [![PyPI downloads](https://img.shields.io/pypi/dm/draftjs_exporter_markdown.svg)](https://pypi.org/project/draftjs_exporter_markdown/) [![Build status](https://github.com/thibaudcolas/draftjs_exporter_markdown/workflows/CI/badge.svg)](https://github.com/thibaudcolas/draftjs_exporter_markdown/actions) [![Coveralls](https://coveralls.io/repos/github/thibaudcolas/draftjs_exporter_markdown/badge.svg)](https://coveralls.io/github/thibaudcolas/draftjs_exporter_markdown) [![Total alerts](https://img.shields.io/lgtm/alerts/g/thibaudcolas/draftjs_exporter_markdown.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/thibaudcolas/draftjs_exporter_markdown/alerts/) [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/thibaudcolas/draftjs_exporter_markdown.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/thibaudcolas/draftjs_exporter_markdown/context:python)
-
 > Library to convert rich text from Draft.js raw ContentState to Markdown, based on [Draft.js exporter](https://github.com/springload/draftjs_exporter).
 >
 > 🚧 This is an experimental exporter with limited Markdown support – please use with caution.
